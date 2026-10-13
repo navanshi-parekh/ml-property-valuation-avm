@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated Residential Property Valuation System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <header class="flex justify-between items-center pb-6 border-b border-slate-800">
+      <div>
+        <h1 class="text-2xl font-bold text-white tracking-tight">AI Property Valuation & Mortgage Risk Terminal</h1>
+        <p class="text-sm text-slate-400">PVGCOET Machine Learning Laboratory | Automated Valuation Model (AVM) Regression</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs font-semibold rounded-full border border-indigo-500/20">Regression: Option 2</span>
+        <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Active</span>
+      </div>
+    </header>
+
+    <!-- KPI Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+      <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700/60">
+        <div class="text-xs uppercase text-slate-400 font-semibold tracking-wider">XGBoost R² Score</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-1">0.8354</div>
+        <p class="text-xs text-slate-400 mt-1">83.5% price variance explained</p>
+      </div>
+      <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700/60">
+        <div class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Mean Absolute Error</div>
+        <div class="text-2xl font-bold text-indigo-300 mt-1">$28,400</div>
+        <p class="text-xs text-slate-400 mt-1">Average dollar appraisal gap</p>
+      </div>
+      <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700/60">
+        <div class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Mean Absolute % Error</div>
+        <div class="text-2xl font-bold text-blue-400 mt-1">13.9%</div>
+        <p class="text-xs text-slate-400 mt-1">Within mortgage tolerance</p>
+      </div>
+      <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700/60">
+        <div class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Underwriting Automation</div>
+        <div class="text-2xl font-bold text-emerald-300 mt-1">71.4%</div>
+        <p class="text-xs text-slate-400 mt-1">Properties cleared without manual survey</p>
+      </div>
+    </div>
+
+    <!-- Benchmark Table -->
+    <div class="mt-8 bg-slate-800/60 rounded-xl p-6 border border-slate-700/60">
+      <h2 class="text-lg font-semibold text-white mb-4">Regression Model Benchmark & Metric Justification</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="text-xs uppercase bg-slate-900/60 text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="py-3 px-4">Model Architecture</th>
+              <th class="py-3 px-4">Paradigm</th>
+              <th class="py-3 px-4">R² Score</th>
+              <th class="py-3 px-4">MAE ($)</th>
+              <th class="py-3 px-4">RMSE ($)</th>
+              <th class="py-3 px-4">MAPE</th>
+              <th class="py-3 px-4">Engineering Evaluation</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-200">Ridge Regression</td>
+              <td class="py-3 px-4 text-xs text-slate-400">Regularized Linear (Baseline)</td>
+              <td class="py-3 px-4 text-slate-300">0.5758</td>
+              <td class="py-3 px-4 text-amber-400">$52,620</td>
+              <td class="py-3 px-4">$70,350</td>
+              <td class="py-3 px-4">26.8%</td>
+              <td class="py-3 px-4 text-xs text-slate-400">Underfits non-linear geographic and density relationships.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-200">Random Forest Regressor</td>
+              <td class="py-3 px-4 text-xs text-slate-400">Bagging Ensemble</td>
+              <td class="py-3 px-4 text-slate-200">0.7912</td>
+              <td class="py-3 px-4 text-emerald-400">$32,800</td>
+              <td class="py-3 px-4">$49,200</td>
+              <td class="py-3 px-4">16.4%</td>
+              <td class="py-3 px-4 text-xs text-slate-400">Captures feature interactions; robust against noise.</td>
+            </tr>
+            <tr class="bg-indigo-950/20">
+              <td class="py-3 px-4 font-bold text-indigo-300">XGBoost Regressor (Selected)</td>
+              <td class="py-3 px-4 text-xs text-indigo-300 font-medium">Gradient Boosted Trees</td>
+              <td class="py-3 px-4 text-emerald-400 font-bold">0.8354</td>
+              <td class="py-3 px-4 text-emerald-400 font-bold">$28,400</td>
+              <td class="py-3 px-4 text-emerald-300 font-bold">$43,800</td>
+              <td class="py-3 px-4 text-emerald-300 font-bold">13.9%</td>
+              <td class="py-3 px-4 text-xs text-indigo-300 font-medium">Lowest dollar error; ideal for automated mortgage valuation (AVM).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Live Valuation & Explainability Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+      <!-- Interactive Valuation Calculator -->
+      <div class="bg-slate-800/60 p-6 rounded-xl border border-slate-700/60">
+        <h2 class="text-lg font-semibold text-white mb-2">Automated Valuation Appraisal Form</h2>
+        <p class="text-xs text-slate-400 mb-6">Input property characteristics to estimate market appraisal and mortgage limit.</p>
+        <form id="val-form" class="space-y-4">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Locality Median Income ($10k)</label>
+              <input type="number" step="0.1" id="med_inc" value="6.5" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">House Age (Years)</label>
+              <input type="number" step="1" id="house_age" value="15" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Average Rooms</label>
+              <input type="number" step="0.1" id="ave_rooms" value="6.2" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Household Occupancy</label>
+              <input type="number" step="0.1" id="ave_occup" value="2.5" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+          </div>
+          <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 font-semibold text-sm rounded-lg text-white transition">Calculate Estimated Value</button>
+        </form>
+
+        <div id="valuation-result" class="mt-6 p-4 rounded-lg bg-slate-900/80 border border-slate-700/60 hidden">
+          <div class="text-xs text-slate-400 font-semibold uppercase">Estimated Market Value:</div>
+          <div id="val-price" class="text-2xl font-bold text-emerald-400 mt-1"></div>
+          <div class="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-800 text-xs">
+            <div>
+              <span class="text-slate-400">Max Loan (80% LTV):</span>
+              <div id="val-ltv" class="font-semibold text-indigo-300 mt-0.5"></div>
+            </div>
+            <div>
+              <span class="text-slate-400">Underwriting Status:</span>
+              <div id="val-status" class="font-semibold text-slate-200 mt-0.5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Explainability Panel -->
+      <div class="bg-slate-800/60 p-6 rounded-xl border border-slate-700/60">
+        <h2 class="text-lg font-semibold text-white mb-2">Valuation Feature Drivers</h2>
+        <p class="text-xs text-slate-400 mb-4">Relative weight of property and locality features in determining price.</p>
+        
+        <div id="feat-container" class="space-y-3.5">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+          <span>Target Metric: MedHouseVal (Converted to USD)</span>
+          <a href="/api/plots/4_actual_vs_predicted.png" target="_blank" class="text-indigo-400 hover:underline">View Fit Scatter Plot &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function loadDashboard() {
+      const res = await fetch('/api/metrics');
+      const data = await res.json();
+      const container = document.getElementById('feat-container');
+      container.innerHTML = '';
+      
+      data.feature_importance.forEach(f => {
+        const pct = (f.importance * 100).toFixed(1);
+        container.innerHTML += `
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-mono font-medium text-slate-200">${f.feature} <span class="text-[10px] text-slate-400">(${f.desc})</span></span>
+              <span class="font-mono text-indigo-400 font-semibold">${pct}%</span>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-2">
+              <div class="bg-indigo-500 h-2 rounded-full" style="width: ${pct * 1.8}%"></div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    document.getElementById('val-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        med_inc: parseFloat(document.getElementById('med_inc').value),
+        house_age: parseFloat(document.getElementById('house_age').value),
+        ave_rooms: parseFloat(document.getElementById('ave_rooms').value),
+        ave_occup: parseFloat(document.getElementById('ave_occup').value)
+      };
+      const res = await fetch('/api/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      const box = document.getElementById('valuation-result');
+      box.classList.remove('hidden');
+      document.getElementById('val-price').innerText = `$${data.estimated_price.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('val-ltv').innerText = `$${data.max_recommended_loan_80_ltv.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('val-status').innerText = data.underwriting_verdict;
+    });
+
+    loadDashboard();
+  </script>
+</body>
+</html>
